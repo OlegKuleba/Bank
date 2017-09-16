@@ -1,10 +1,27 @@
 package com.myapp.kuleba.bank.entities;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity
 public class Address {
 
+    @Id
+    @GeneratedValue
+    private long id;
+
+    @Column(length = 30)
     private String city;
+
+    @Column(length = 30)
     private String street;
+
+    @Column(length = 10)
     private String building;
+
+    @Column(length = 10)
     private String apartment;
 
     public Address() {
@@ -19,6 +36,10 @@ public class Address {
 
     public String getCity() {
         return city;
+    }
+
+    public long getId() {
+        return id;
     }
 
     public void setCity(String city) {

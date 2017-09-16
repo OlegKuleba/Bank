@@ -1,13 +1,29 @@
 package com.myapp.kuleba.bank.entities;
 
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
+@Entity
 public class Person {
 
+    @Id
+    @GeneratedValue
+    private long id;
+
+    @Column(nullable = false, length = 30)
     private String name;
+
+    @Column(nullable = false, length = 30)
     private String lastName;
+
+    @Column(nullable = false, length = 30)
     private String fatherName;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    private Address address;
+
+    @OneToMany
     private List<Card> cardList;
 
     public Person() {
@@ -18,6 +34,10 @@ public class Person {
         this.lastName = lastName;
         this.fatherName = fatherName;
         this.cardList = new ArrayList<>(3);
+    }
+
+    public long getId() {
+        return id;
     }
 
     public String getName() {
@@ -55,6 +75,7 @@ public class Person {
     public boolean addCard(Card card) {
         return this.cardList.add(card);
     }
+
     public Card deleteCard(String number) throws IndexOutOfBoundsException {
         int index = -1;
         for (int i = 0; i < cardList.size(); i++) {

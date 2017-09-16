@@ -1,13 +1,32 @@
 package com.myapp.kuleba.bank.entities;
 
+import javax.persistence.*;
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 
+@Entity
 public class Card {
 
+    @Id
+    @GeneratedValue
+    private long id;
+
+    @Column(unique = true, nullable = false, length = 16)
     private String number;
+
+    @Column(nullable = false, length = 5)
     private String expDate;
+
+    @Column(nullable = false)
     private BigDecimal balance;
+
+    @ManyToOne
+    @JoinColumn(name = "person_id")
     private Person owner;
+
+    @OneToMany
+    private List<CardHistory> cardHistoryList;
 
     public Card() {
     }
@@ -17,6 +36,11 @@ public class Card {
         this.expDate = expDate;
         this.balance = balance;
         this.owner = owner;
+        this.cardHistoryList = new ArrayList<>(3);
+    }
+
+    public long getId() {
+        return id;
     }
 
     public String getNumber() {
@@ -49,5 +73,13 @@ public class Card {
 
     public void setOwner(Person owner) {
         this.owner = owner;
+    }
+
+    public List<CardHistory> getCardHistoryList() {
+        return cardHistoryList;
+    }
+
+    public boolean addCardHistory(CardHistory history) {
+        return this.cardHistoryList.add(history);
     }
 }
