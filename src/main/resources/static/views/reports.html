@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Reports</title>
+
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>-->
+    <link rel="stylesheet" href="../bootstrap-3.3.7-dist/css/bootstrap.min.css">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+          integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>-->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="../js/reports.js"></script>
+</head>
+<body>
+
+<!--<div data-ng-app="reportsPage" data-ng-controller="myController">
+    <table>
+        <thead>
+        <tr>
+            <th>name</th>
+            <th>last name</th>
+            <th>father name</th>
+            <th>cards</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr data-ng-repeat="person in persons">
+            <td>{{person.name}}</td>
+            <td>{{person.lastName}}</td>
+            <td>{{person.fatherName}}</td>
+            <td><span data-ng-repeat="card in person.cardList">{{card}}</span></td>
+        </tr>
+        </tbody>
+    </table>
+
+    <script type="text/javascript">
+        var app = angular.module('reportsPage', []);
+        app.controller('myController', function ($scope, $http) {
+            $scope.persons = [];
+            $http.get('/getPersons').then(function (response) {
+                $scope.persons = response.data;
+            });
+        });
+    </script>
+</div>-->
+
+<div class="container" data-ng-app="reportsPage" data-ng-controller="reportsController">
+    <h1 class="text-center">Reports</h1>
+
+    <div class="row">
+        <div class="text-center">
+            <button data-ng-click="showCitiesClientsReport()" class="btn btn-primary">Cities list with clients amount
+            </button>
+        </div>
+        <div class="col-md-offset-3"></div>
+        <table class="col-md-6 table table-bordered table-striped table-hover">
+            <thead>
+            <tr class="row">
+                <th class="col-md-3 text-center">City</th>
+                <th class="col-md-3 text-center">Clients amount</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr class="row" data-ng-repeat="(key, value) in citiesClientsReport">
+                <td class="col-md-offset-3 col-md-3">{{key}}</td>
+                <td class="col-md-3">{{value}}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div>
+        <div class="text-center">
+            <button data-ng-click="showClientsWithSeveralCards()" class="btn btn-primary">
+                List of clients with several cards
+            </button>
+        </div>
+        <table class="table table-bordered table-striped table-hover">
+            <thead>
+            <tr class="row">
+                <th class="col-md-3 text-center">Id</th>
+                <th class="col-md-3 text-center">Name</th>
+                <th class="col-md-3 text-center">Last name</th>
+                <th class="col-md-3 text-center">Father name</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr class="row" data-ng-repeat="client in clientsWithSeveralCardsReport">
+                <td class="col-md-3">{{client.id}}</td>
+                <td class="col-md-3">{{client.name}}</td>
+                <td class="col-md-3">{{client.lastName}}</td>
+                <td class="col-md-3">{{client.fatherName}}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div>
+        <div class="text-center">
+            <button data-ng-click="showLastOperationsOfCards()" class="btn btn-primary">
+                Cards' last operations
+            </button>
+        </div>
+        <table class="table table-bordered table-striped table-hover">
+            <thead>
+            <tr class="row">
+                <th class="col-md-1 text-center">Id</th>
+                <th class="col-md-3 text-center">Date</th>
+                <th class="col-md-3 text-center">Operation type</th>
+                <th class="col-md-2 text-center">Amount</th>
+                <th class="col-md-3 text-center">Card id</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr class="row" data-ng-repeat="item in lastOperationsOfCards">
+                <td class="col-md-1">{{item.id}}</td>
+                <td class="col-md-3">{{item.date | date: 'medium'}}</td>
+                <td class="col-md-3">{{item.operationType}}</td>
+                <td class="col-md-2">{{item.amount}}</td>
+                <td class="col-md-3">{{item.card_id}}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+</body>
+</html>
