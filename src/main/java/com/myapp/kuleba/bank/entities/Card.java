@@ -21,11 +21,11 @@ public class Card {
     @Column(nullable = false)
     private BigDecimal balance;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "person_id")
     private Person owner;
 
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL)
     private List<CardHistory> cardHistoryList;
 
     public Card() {

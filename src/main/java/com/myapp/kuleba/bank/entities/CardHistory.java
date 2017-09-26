@@ -1,12 +1,13 @@
 package com.myapp.kuleba.bank.entities;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
 @Entity
-public class CardHistory {
+public class CardHistory implements Serializable {
 
     @Id
     @GeneratedValue
@@ -21,7 +22,7 @@ public class CardHistory {
     @Column(nullable = false)
     private BigDecimal amount;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "card_id")
     private Card card;
 
@@ -33,6 +34,13 @@ public class CardHistory {
         this.operationType = operationType;
         this.amount = amount;
         this.card = card;
+    }
+
+    public CardHistory(long id, Calendar date, String operationType, BigDecimal amount) {
+        this.id = id;
+        this.date = date;
+        this.operationType = operationType;
+        this.amount = amount;
     }
 
     public long getId() {
