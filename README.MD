@@ -1,4 +1,4 @@
-Bank
+# Bank
 
 Spring boot application. It has data about clients, their addresses, credit cards and cards' histories. Web interface allows to add new data and change it (deleting is only as stub). 
 
