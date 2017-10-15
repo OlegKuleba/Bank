@@ -1,19 +1,19 @@
-insert into person(last_name, name, father_name) values ('РђР»С‚СѓРЅСЏРЅ', 'Р“РµРЅСЂС–С…', 'РћРІР°РЅРµСЃРѕРІРёС‡');
-insert into person(last_name, name, father_name) values ('РђРЅР°РЅСЊС”РІ', 'Р’РѕР»РѕРґРёРјРёСЂ', 'Р†РІР°РЅРѕРІРёС‡');
-insert into person(last_name, name, father_name) values ('РђРЅРґСЂС–СЏРєР°', 'РћР»РµРєСЃР°РЅРґСЂ', 'РћР»РµРєСЃР°РЅРґСЂРѕРІРёС‡');
-insert into person(last_name, name, father_name) values ('РђРЅРґСЂРѕС‰СѓРє', 'Р’Р°СЃРёР»СЊ', 'РћРІРµСЂСЏРЅРѕРІРёС‡');
-insert into person(last_name, name, father_name) values ('РђРїС‚РµСЂ', 'РЇРєС–РІ', 'РњРёС…Р°Р№Р»РѕРІРёС‡');
-insert into person(last_name, name, father_name) values ('РђСЂС‚РµРјРµРЅРєРѕ', 'РњРёРєРѕР»Р°', 'РњРёРєРѕР»Р°Р№РѕРІРёС‡');
-insert into person(last_name, name, father_name) values ('РђСЂС…С–РїРѕРІР°', 'Р“Р°РЅРЅР°', 'Р“СЂРёРіРѕСЂС–РІРЅР°');
+insert into person(last_name, name, father_name) values ('Алтунян', 'Генріх', 'Ованесович');
+insert into person(last_name, name, father_name) values ('Ананьєв', 'Володимир', 'Іванович');
+insert into person(last_name, name, father_name) values ('Андріяка', 'Олександр', 'Олександрович');
+insert into person(last_name, name, father_name) values ('Андрощук', 'Василь', 'Оверянович');
+insert into person(last_name, name, father_name) values ('Аптер', 'Яків', 'Михайлович');
+insert into person(last_name, name, father_name) values ('Артеменко', 'Микола', 'Миколайович');
+insert into person(last_name, name, father_name) values ('Архіпова', 'Ганна', 'Григорівна');
 
-insert into address(city, street, building, apartment) values ('Р”РЅРёРїСЂРѕ',	'Р“Р°РіР°СЂРёРЅР°',	'103Р°',	'1213');
-UPDATE person SET address_id = 1 WHERE last_name = 'РђР»С‚СѓРЅСЏРЅ';
+insert into address(city, street, building, apartment) values ('Днипро',	'Гагарина',	'103а',	'1213');
+UPDATE person SET address_id = 1 WHERE last_name = 'Алтунян';
 
-insert into address(city, street, building, apartment) values ('РљРёРµРІ',	'РЎР»Р°РІС‹',	'520',	'70');
-UPDATE person SET address_id = 2 WHERE last_name = 'РђРЅР°РЅСЊС”РІ';
+insert into address(city, street, building, apartment) values ('Киев',	'Славы',	'520',	'70');
+UPDATE person SET address_id = 2 WHERE last_name = 'Ананьєв';
 
-insert into address(city, street, building, apartment) values ('РћРґРµСЃСЃР°',	'Р”РµСЂРёР±Р°СЃРѕРІСЃРєР°СЏ',	'12',	'7');
-UPDATE person SET address_id = 3 WHERE last_name = 'РђРїС‚РµСЂ';
+insert into address(city, street, building, apartment) values ('Одесса',	'Дерибасовская',	'12',	'7');
+UPDATE person SET address_id = 3 WHERE last_name = 'Аптер';
 
-insert into address(city, street, building, apartment) values ('Р”РЅРёРїСЂРѕ',	'РџСѓС€РєРёРЅР°',	'7',	'32');
-UPDATE person SET address_id = 4 WHERE last_name = 'РђСЂС‚РµРјРµРЅРєРѕ';
+insert into address(city, street, building, apartment) values ('Днипро',	'Пушкина',	'7',	'32');
+UPDATE person SET address_id = 4 WHERE last_name = 'Артеменко';
